@@ -1,12 +1,12 @@
-import { City } from './../city';
-import { Action, createAction, props } from '@ngrx/store';
-// export const LoadCities = createAction('[Login Page] User Login', props<{ user: City }>());
+import { City } from './../city'
+import { Action, createAction, props } from '@ngrx/store'
+// export const LoadCities = createAction('[Cities Page] Load Cities', props<{ city: City }>());
 // export const LoadCities = createAction('[Cities Page] Load Cities');
-export const LoadCitiesSuccess = createAction('[Cities Page] Load Cities', props<{ cities: City[] }>());
+export const LoadCitiesSuccess = createAction('[Cities Page] Load Cities Success', props<{ cities: City[] }>())
 
 export enum CitiesActionTypes {
-    LoadCities = '[Product] Toggle Product Code',
+    LoadCities = '[Cities Page] Load Cities',
 }
 export class LoadCities implements Action {
-    readonly type = CitiesActionTypes.LoadCities;
+    readonly type = CitiesActionTypes.LoadCities
 }

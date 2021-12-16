@@ -1,5 +1,5 @@
-import { City } from './../../city';
-import { Component, Input, OnInit } from '@angular/core';
+import { City } from './../../city'
+import { Component, Input, OnInit } from '@angular/core'
 
 @Component({
     selector: 'app-cities-list',
@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: [ './cities-list.component.css' ],
 })
 export class CitiesListComponent implements OnInit {
-    // @Input() cities: City[];
+    @Input() cities: City[]
 
     // @Output()   = new EventEmitter();
 

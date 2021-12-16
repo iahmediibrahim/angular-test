@@ -1,8 +1,8 @@
-<!-- <div  *ngIf="cities">
+<div  *ngIf="cities">
 <mat-card *ngFor="let city of cities" class="city-card mat-elevation-z10">
 
     <mat-card-header>
-
+{{city}}
         <p>{{city.CityName}}</p>
 
     </mat-card-header>
@@ -10,7 +10,7 @@
     <img mat-card-image [src]="city.CityImage">
 
     <mat-card-content>
-          <mat-card-title>{{city.description}}</mat-card-title> 
+          <mat-card-title>{{city.Description}}</mat-card-title> 
     </mat-card-content>
 
     <mat-card-actions class="city-actions">
@@ -18,15 +18,15 @@
       
 
       <button mat-mini-fab color="accent">
-        <mat-icon class="add-city-btn" (click)="editcity(city)">edit</mat-icon>
+        <mat-icon class="add-city-btn" >edit</mat-icon>
       </button>
 
       <button mat-mini-fab color="warn">
-        <mat-icon class="add-city-btn" (click)="onClick(city)">delete</mat-icon>
+        <mat-icon class="add-city-btn" >delete</mat-icon>
       </button>
 
     </mat-card-actions>
 
 </mat-card>
 
-</div> -->
+</div>
