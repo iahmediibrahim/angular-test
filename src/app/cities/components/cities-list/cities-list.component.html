@@ -1,32 +1,36 @@
-<div  *ngIf="cities">
-<mat-card *ngFor="let city of cities" class="city-card mat-elevation-z10">
+<ng-container *ngIf="cities">
+  <h2>Filter by Population: </h2>
+  <mat-slider thumbLabel style="width: 100%;" [displayWith]="formatLabel" (input)="filter($event)" tickInterval="1000"
+    step="1000000" min="0" max="50000000" aria-label="units">
+  </mat-slider>
+  <div class="city-grid">
 
-    <mat-card-header>
-{{city}}
-        <p>{{city.CityName}}</p>
+    <mat-card *ngFor="let city of cities" class="city-card">
+      <mat-card-header>
+        <mat-card-title>{{city.CityName}}</mat-card-title>
+        <mat-card-subtitle>{{city.Nation}}</mat-card-subtitle>
+        <img mat-card-avatar [src]="city.NationFlag">
 
-    </mat-card-header>
+      </mat-card-header>
+      <img mat-card-image [src]="city.CityImage" class="img-responsive">
 
-    <img mat-card-image [src]="city.CityImage">
+      <mat-card-content>
+        <p>{{city.Description}}</p>
+      </mat-card-content>
+      <div class="flex">
+        <mat-card-actions class="city-actions">
+          <button mat-raised-button color="primary" [disabled]="city.Population < NukeAmount ? true: false"
+            (click)="removeMillions(city)">
+            Nuke </button>
+          <button mat-mini-fab color="warn" (click)="growByAMillion(city)">
+            Grow </button>
+        </mat-card-actions>
+        <p>
+          Population: <strong>{{city.Population}}</strong>
+        </p>
 
-    <mat-card-content>
-          <mat-card-title>{{city.Description}}</mat-card-title> 
-    </mat-card-content>
+      </div>
 
-    <mat-card-actions class="city-actions">
-
-      
-
-      <button mat-mini-fab color="accent">
-        <mat-icon class="add-city-btn" >edit</mat-icon>
-      </button>
-
-      <button mat-mini-fab color="warn">
-        <mat-icon class="add-city-btn" >delete</mat-icon>
-      </button>
-
-    </mat-card-actions>
-
-</mat-card>
-
-</div>
+    </mat-card>
+  </div>
+</ng-container>

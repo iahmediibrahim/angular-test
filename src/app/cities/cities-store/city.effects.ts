@@ -1,5 +1,5 @@
 import { CityService } from './../city-service.service'
-import { CitiesActionTypes, LoadCitiesSuccess } from './city.actions'
+import { LoadCities, LoadCitiesSuccess } from './city.actions'
 import * as cityActions from './city.actions'
 
 import { mergeMap, map, concatMap, catchError } from 'rxjs'
@@ -9,13 +9,13 @@ import { City } from '../city'
 
 @Injectable()
 export class CityEffects {
-    constructor(private actions$: Actions, private cityService: CityService) {}
-    LoadCities$ = createEffect(() =>
-        this.actions$.pipe(
-            ofType(CitiesActionTypes.LoadCities),
-            mergeMap((action: cityActions.LoadCities) =>
-                this.cityService.getJSON().pipe(map((cities: City[]) => LoadCitiesSuccess({ cities }))),
-            ),
-        ),
+  constructor(private actions$: Actions, private cityService: CityService) {}
+  LoadCities$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(LoadCities),
+      mergeMap((action: typeof LoadCities) =>
+        this.cityService.getJSON().pipe(map((cities: City[]) => LoadCitiesSuccess({ cities })))
+      )
     )
+  )
 }

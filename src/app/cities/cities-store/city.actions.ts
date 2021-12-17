@@ -1,12 +1,7 @@
 import { City } from './../city'
 import { Action, createAction, props } from '@ngrx/store'
-// export const LoadCities = createAction('[Cities Page] Load Cities', props<{ city: City }>());
-// export const LoadCities = createAction('[Cities Page] Load Cities');
+export const LoadCities = createAction('[Cities Page] Load Cities')
 export const LoadCitiesSuccess = createAction('[Cities Page] Load Cities Success', props<{ cities: City[] }>())
-
-export enum CitiesActionTypes {
-    LoadCities = '[Cities Page] Load Cities',
-}
-export class LoadCities implements Action {
-    readonly type = CitiesActionTypes.LoadCities
-}
+export const RemovePopulation = createAction('[City Card] Remove Population', props<{ city: City }>())
+export const GrowPopulation = createAction('[City Card] Grow Population', props<{ city: City }>())
+export const FilterPopulation = createAction('[City List] Filter Population', props<{ filterByValue }>())

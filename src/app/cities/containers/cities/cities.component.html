@@ -1,11 +1,4 @@
-<div class='row'>
-  <div class='col-md-4'>
-    <app-cities-list
-    [cities]="cities$ | async"
-    ></app-cities-list>
-
-<!-- <mat-card *ngFor="let city of cities$ | async" class="city-card mat-elevation-z10">
-  {{city.CityName}}
-</mat-card> -->
-  </div>
+<div class='m-4'>
+  <app-cities-list [cities]="cities$ | async" (removeFromPopulation)="removePopulation($event)"
+    (growPopulation)="growPopulation($event)" (filterByPopulation)="filterByPopulation($event)"></app-cities-list>
 </div>

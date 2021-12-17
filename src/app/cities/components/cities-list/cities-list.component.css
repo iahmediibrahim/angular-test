@@ -1,0 +1,24 @@
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+@media screen {
+}
+.city-card {
+  max-width: 400px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+.city-actions button {
+  margin-left: 10px;
+}
+
+.img-responsive {
+  /* width: 100%; */
+  /* height: auto; */
+}
